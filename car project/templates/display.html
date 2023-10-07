@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <style>
+    label{
+    width:400px;
+    display:inline-block;
+    font-style: arial bold;
+    font-size:30pt;
+    color:orangered;
+  }
+  input{
+    font-size: 15pt;
+    width: 200px;
+    background-color:blanchedalmond;
+  }
+  button{
+    width: 200px;
+    height: 50px;
+    background:green;
+    color:white;
+    font-size: xx-large;
+  }
+  body{
+    background-color: aquamarine;
+    font-style: arial bold;
+    background-size: 1500px ;
+    background-image:url("https://www.wallpapertip.com/wmimgs/187-1870191_toy-car-wallpaper-hd.jpg")
+    }
+  h1{
+    color: green; 
+    font-size:40pt;
+    font-style:Algerian;
+  }
+  p{
+    color:black;
+    font-size: 36pt; 
+    background-color: aqua;
+  }
+  select {
+    width: 210px;
+    height:32px;
+    font-size: 20pt;
+    background-color: beige;
+   
+
+  }
+  
+  </style>
+  
+   
+   
+</head>
+
+<body>
+ <div class="login">
+  <center><h1><b>CAR PRICE PREDICTION</b></h1></center>
+  <hr>
+	
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" align:left>
+    <center>
+        <br>
+
+
+                <label for="YEAR" ><b>ENTER YEAR </b> </label>
+                <!--<input type="number" name="No.of Bedrooms" placeholder="Enter No.of bedrooms" required="required" min="1" max="4"/>-->
+                <input type="number" placeholder="Enter the year" name="year" min="2000" max="2021" required>
+                <br><br>
+            
+                <label ><b>PRESENT PRICE     </b></label>
+                <input type="number" name="present price" placeholder="Enter present price" required>
+          
+        
+                <br><br>
+                <label><b>Kms DRIVEN</b></label>
+                <input type="number" name="kms driven" step="any" placeholder="Enter Kms driven" required>
+               <br><br>
+               <label><b>FUEL TYPE</b></label>
+               <select name= "fuel type" required>
+               <option disabled selected hidden></option>
+               <option>0</option>
+               <option>1</option>
+               <option>2</option>
+               </select><br><br>
+               <label><b>SELLER TYPE </b></label>
+               <select name= "seller type" required>
+               <option disabled selected hidden></option>
+               <option>0</option>
+               <option>1</option>
+               </select><br><br>
+               <label><b>TRANSMISSION </b></label>
+               <select name= "transmission" required>
+               <option disabled selected hidden></option>
+               <option>0</option>
+               <option>1</option>
+               </select><br><br>
+               <br>
+       <button type="submit">Predict</button>
+      </center>
+    </form>
+
+   
+   <br>
+   
+ 
+   <center><p >{{ prediction}}</p> </center>
+
+ </div>
+
+
+</body>
+</html>
